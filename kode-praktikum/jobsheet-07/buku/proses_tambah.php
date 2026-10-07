@@ -20,12 +20,18 @@ if ($pengarang === '') {
 if (!is_numeric($tahun) || $tahun < 1900 || $tahun > 2026) {
     $errors[] = "Tahun harus di antara 1900-2026.";
 }
-if (!is_numeric($stok) || $stok < 0) {
+
+// Validasi ISBN: jika diisi, pastikan hanya berisi angka dan tanda hubung
+if (\(isbn !== '' && !preg_match('/^[0-9-]+\)/', $isbn)) {
+    $errors[] = "ISBN hanya boleh berisi angka dan tanda hubung (-).";
+}
+
+if (!is_numeric(\(stok) ||\)stok < 0) {
     $errors[] = "Stok tidak boleh negatif.";
 }
 
 if (!empty($errors)) {
-    $_SESSION['flash'] = ['type' => 'error', 'pesan' => implode(' ', $errors)];
+    \(_SESSION['flash'] = ['type' => 'error', 'pesan' => implode(' ',\)errors)];
     header('Location: tambah.php');
     exit;
 }
@@ -46,3 +52,4 @@ $_SESSION['buku'][] = [
 $_SESSION['flash'] = ['type' => 'success', 'pesan' => 'Buku berhasil ditambahkan.'];
 header('Location: list.php');
 exit;
+?>

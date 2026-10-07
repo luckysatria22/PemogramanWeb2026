@@ -20,17 +20,21 @@ if (!empty($errors)) {
     exit;
 }
 
+// Inisialisasi session anggota jika belum ada
 if (!isset($_SESSION['anggota'])) {
     $_SESSION['anggota'] = [];
 }
 
+// Simpan data anggota baru ke session
 $_SESSION['anggota'][] = [
     'nama' => $nama,
-    'no_anggota' => $noAnggota,
+    'email' => $email,
+    'telepon' => $telepon,
     'alamat' => $alamat,
-    'no_hp' => $noHp,
 ];
 
+// Set flash message sukses dan redirect ke daftar anggota
 $_SESSION['flash'] = ['type' => 'success', 'pesan' => 'Anggota berhasil ditambahkan.'];
 header('Location: list.php');
 exit;
+?>
