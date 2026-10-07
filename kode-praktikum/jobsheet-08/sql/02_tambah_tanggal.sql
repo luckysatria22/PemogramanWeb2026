@@ -1,0 +1,2 @@
+ALTER TABLE buku
+    ADD COLUMN IF NOT EXISTS tanggal_ditambahkan TIMESTAMP DEFAULT NOW();

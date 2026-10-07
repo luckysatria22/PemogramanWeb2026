@@ -30,6 +30,11 @@ function initHapusConfirm() {
 // ===== Filter/pencarian tabel real-time =====
 function initTableFilter() {
     const input = document.getElementById("search-input");
+    if (input) {
+        input.addEventListener("input", function () {
+            // ...menyaring baris tabel...
+        });
+    }
     const table = document.querySelector(".table-responsive table");
     if (!input || !table) return;
 
